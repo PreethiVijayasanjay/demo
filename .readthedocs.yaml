@@ -1,11 +1,23 @@
+# Read the Docs configuration file
 version: 2
 
-sphinx:
-  configuration: docs/source/conf.py
-
+# Build configurations
 build:
-  image: latest
+  os: ubuntu-22.04  # Use the latest Ubuntu version
+  tools:
+    python: "3.13"  # Specify Python version
 
+# Define the Python environment and dependencies
 python:
   install:
-    - requirements: docs/requirements.txt
+    - requirements: requirements.txt  # Install dependencies from requirements.txt
+
+# Sphinx configuration
+sphinx:
+  configuration: docs/source/conf.py  # Path to Sphinx configuration file
+
+# Enable MkDocs support (optional)
+formats:
+  - htmlzip
+  - pdf
+  - epub
